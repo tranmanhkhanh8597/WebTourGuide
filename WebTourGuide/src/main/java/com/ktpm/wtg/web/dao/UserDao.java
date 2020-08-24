@@ -36,6 +36,16 @@ public class UserDao {
 		return user;
 	}
 	
+	public User getByUsername(String username)
+	{
+		String uri= PATH + "/getByUsername/" + username;
+		RestTemplate restTemplate = new RestTemplate();
+		ResponseEntity<User> rateResponse = restTemplate.exchange(uri, HttpMethod.GET, null, 
+																			new ParameterizedTypeReference<User>(){});
+		User user = rateResponse.getBody();
+		return user;
+	}
+	
 	public void add(User user)
 	{
 		String url= PATH + "/add";

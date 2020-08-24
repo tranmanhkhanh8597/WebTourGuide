@@ -95,7 +95,7 @@
                         <div class="columns-2 search-column">
                             <div class="showOnDesktop">
                                 <h4>&nbsp;</h4></div>
-                            <div class="showOnDesktop"><a id="searchButton" onclick="changeSearchButtonToLoadingButton();" class="button orange square minWidth200">Find A Tour</a></div>
+                            <div class="showOnDesktop"><a id="searchButton" href="search_tour" class="button orange square minWidth200">Find A Tour</a></div>
              
                         </div>
                         <div class="columns-3 block-column">

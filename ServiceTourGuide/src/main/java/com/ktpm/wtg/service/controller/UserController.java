@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ktpm.wtg.service.entities.Member;
 import com.ktpm.wtg.service.entities.User;
 import com.ktpm.wtg.service.repository.UserRepository;
 
@@ -49,5 +50,10 @@ public class UserController {
 	@RequestMapping(value = "/getById/{id}", method = RequestMethod.GET)  
 	public User getUserById(@PathVariable("id") String id) {  
 	    return userRepository.findBy_id(id);  
+	}
+	
+	@RequestMapping(value = "/getByUsername/{username}", method = RequestMethod.GET)  
+	public User getUserByUsername(@PathVariable("username") String username) {  
+	    return userRepository.findByusername(username); 
 	}
 }

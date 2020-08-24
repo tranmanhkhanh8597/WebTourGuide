@@ -74,7 +74,7 @@
                     <div class="guide-profile-block row">
                         <div class="columns-4">
                             <div class="image-holder"> 
-                                <img alt="Private tour guide Junie" src="https://www.toursbylocals.com/images/guides/0/664/201783195912967.jpg">
+                                <img alt="Private tour guide Junie" src="https://www.toursbylocals.com/images/guides/31/31735/2018230231041228.jpg">
                                 <br> 
                                 <a target="photoViewer" rel="nofollow" onclick="" href=""><i class="fa fa-camera"></i>&nbsp;View Photos&nbsp;(1)</a> 
                             </div>
@@ -83,7 +83,7 @@
                             <h2>${lsGuiderId.fullName}</h2>
                             <p class="guide-meta">${lsGuiderId.country}</p>
                             <p>${lsGuiderId.biography}</p>
-                            <div class="button-holder"> <a rel="nofollow" class="button green" href="">Message ${lsGuiderId.fullName}</a> 
+                            <div class="button-holder"> <a rel="nofollow" class="button green" href="emailpage">Message ${lsGuiderId.fullName}</a> 
                                 <a href="#guide-tours" class="read-more smooth-scroll">View All Tours</a> 
                             </div>
                         </div>
@@ -164,12 +164,12 @@
                 </aside>
             </div>
             <div class="guide-contact-section">
-                <div class="icon-holder avatar-holder"> <img alt="Private tour guide Junie" src="https://www.toursbylocals.com/images/guides/0/664/201783195912967.jpg"> </div>
+                <div class="icon-holder avatar-holder"> <img alt="Private tour guide Junie" src="https://www.toursbylocals.com/images/guides/31/31735/2018230231041228.jpg"> </div>
                 <div class="row">
                     <div class="columns-6 column-center">
                         <h3>Contact this Guide</h3>
                         <p>Questions about the tour? Not seeing exactly what you’re looking for? Contact this guide with questions, or to create a custom itinerary for you and your travel companions.</p> 
-                        <a rel="nofollow" class="button orange" href="">Message ${lsGuiderId.fullName}</a> 
+                        <a rel="nofollow" class="button orange" href="emailpage">Message ${lsGuiderId.fullName}</a>
                     </div>
                 </div>
             </div>

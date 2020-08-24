@@ -79,7 +79,8 @@
                             <button class="dropbtn">Login</button>
                             <div class="dropdown-content" align="center">
                                 <a rel="nofollow" href="login.jsp">Traveler Login</a>
-                                <a rel="nofollow" href="">Guide Login</a>
+                                <a rel="nofollow" href="login">Guide Login</a>
+                                <a rel="nofollow" href="adminLogin">Admin Login</a>
                             </div>
                         </li>
                     </ul>
@@ -107,7 +108,7 @@
                     <a rel="nofollow" href="login.jsp">Traveler Login</a>
                 </li>
                 <li class="highlight">
-                    <a rel="nofollow" href="">Guide Login</a>
+                    <a rel="nofollow" href="login">Guide Login</a>
                 </li>
             </ul>
         </nav>

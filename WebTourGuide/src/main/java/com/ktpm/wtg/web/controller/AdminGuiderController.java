@@ -2,6 +2,8 @@ package com.ktpm.wtg.web.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,24 +20,36 @@ public class AdminGuiderController {
 	GuiderDao guiderDao;
 	
 	@RequestMapping(value = {"/admin_guider"}, method = RequestMethod.GET)
-	public ModelAndView AdminGuider() {
+	public ModelAndView AdminGuider(HttpSession session) {
+		if(session.getAttribute("username") != null) {
 		List<Guider> lsGuider=guiderDao.list();
 		ModelAndView modelView=new ModelAndView("admin/admin_guider");
 		modelView.addObject("lsGuider", lsGuider);
 		return modelView;
+		}else {
+			return new ModelAndView("redirect:/");
+		}
 	}
 	@RequestMapping(value = {"/admin_guider_detail"}, method = RequestMethod.GET)
-	public ModelAndView AdminGuiderDetail(String id) {
+	public ModelAndView AdminGuiderDetail(String id, HttpSession session) {
+		if(session.getAttribute("username") != null) {
 		Guider guider= guiderDao.getById(id);
 		ModelAndView modelView=new ModelAndView("admin/admin_guider_detail");
 		modelView.addObject("guider", guider);
 		return modelView;
+		}else {
+			return new ModelAndView("redirect:/");
+		}
 	}
 	
 	@RequestMapping(value = {"/admin_create_guider"}, method = RequestMethod.GET)
-	public ModelAndView AdminGuiderCreate() {
+	public ModelAndView AdminGuiderCreate(HttpSession session) {
+		if(session.getAttribute("username") != null) {
 		ModelAndView modelView=new ModelAndView("admin/admin_create_guider");
 		return modelView;
+	}else {
+		return new ModelAndView("redirect:/");
+	}
 	}
 	
 	@RequestMapping(value = {"/addguider"}, method = RequestMethod.GET)

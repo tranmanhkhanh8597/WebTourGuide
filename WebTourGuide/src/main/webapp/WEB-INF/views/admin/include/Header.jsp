@@ -131,6 +131,11 @@
           <a href="admin_tour">
             <i class="fa fa-book"></i> <span>Quản lý Tour</span>
           </a>  </li> 
+          
+          <li>
+          <a href="admin_member">
+            <i class="fa fa-book"></i> <span>Quản lý Thành viên</span>
+          </a>  </li>
 <%--
            <ul class="treeview-menu">
             <li><a href="AdminReadExercise"><i class="fa fa-circle-o"></i> Quản lý bài tập đọc</a></li>

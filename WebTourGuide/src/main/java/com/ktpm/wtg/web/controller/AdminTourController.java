@@ -2,6 +2,8 @@ package com.ktpm.wtg.web.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,25 +21,38 @@ public class AdminTourController {
 	TourDao tourDao;
 	
 	@RequestMapping(value = {"/admin_tour"}, method = RequestMethod.GET)
-	public ModelAndView AdminTour() {
+	public ModelAndView AdminTour(HttpSession session) {
+		if(session.getAttribute("username") != null) {
 		List<Tour> lsTour=tourDao.list();
 		ModelAndView modelView=new ModelAndView("admin/admin_tour");
 		modelView.addObject("lsTour", lsTour);
 		return modelView;
+		}else {
+			return new ModelAndView("redirect:/");
+		}
+		
 	}
 	
 	@RequestMapping(value = {"/admin_tour_detail"}, method = RequestMethod.GET)
-	public ModelAndView AdminTourDetail(String id) {
+	public ModelAndView AdminTourDetail(String id, HttpSession session) {
+		if(session.getAttribute("username") != null) {
 		Tour tour= tourDao.getById(id);
 		ModelAndView modelView=new ModelAndView("admin/admin_tour_detail");
 		modelView.addObject("tour", tour);
 		return modelView;
+		}else {
+			return new ModelAndView("redirect:/");
+		}
 	}
 	
 	@RequestMapping(value = {"/admin_create_tour"}, method = RequestMethod.GET)
-	public ModelAndView AdminTourCreate() {
+	public ModelAndView AdminTourCreate(HttpSession session) {
+		if(session.getAttribute("username") != null) {
 		ModelAndView modelView=new ModelAndView("admin/admin_create_tour");
 		return modelView;
+		}else {
+			return new ModelAndView("redirect:/");
+		}
 	}
 	
 	@RequestMapping(value = {"/addtour"}, method = RequestMethod.GET)

@@ -72,7 +72,7 @@
                             </div>
                             <div class="login-content row">
                                 <div class="columns-12 column-center column-reset">
-                                    <form name="loginForm" method="post" class="login-form background-form" action="">
+                                    <form name="loginAction" method="get" class="login-form background-form" action="loginAction">
                                         <div class="form-section">
                                             <div class="form-field">
                                                 <label>Email</label>

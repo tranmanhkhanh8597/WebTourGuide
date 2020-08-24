@@ -2,6 +2,7 @@ package com.ktpm.wtg.web.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,25 +21,37 @@ public class AdminUserController {
 	UserDao userDao;
 	
 	@RequestMapping(value = {"/admin_user"}, method = RequestMethod.GET)
-	public ModelAndView AdminUser() {
+	public ModelAndView AdminUser(HttpSession session) {
+		if(session.getAttribute("username") != null) {
 		List<User> lsUser=userDao.list();
 		ModelAndView modelView=new ModelAndView("admin/admin_user");
 		modelView.addObject("lsUser", lsUser);
 		return modelView;
+		}else {
+			return new ModelAndView("redirect:/");
+		}
 	}
 	
 	@RequestMapping(value = {"/admin_user_detail"}, method = RequestMethod.GET)
-	public ModelAndView AdminUserDetail(String id) {
+	public ModelAndView AdminUserDetail(String id, HttpSession session) {
+		if(session.getAttribute("username") != null) {
 		User user= userDao.getById(id);
 		ModelAndView modelView=new ModelAndView("admin/admin_user_detail");
 		modelView.addObject("user", user);
 		return modelView;
+		}else {
+			return new ModelAndView("redirect:/");
+		}
 	}
 	
 	@RequestMapping(value = {"/admin_create_user"}, method = RequestMethod.GET)
-	public ModelAndView AdminUserCreate() {
+	public ModelAndView AdminUserCreate(HttpSession session) {
+		if(session.getAttribute("username") != null) {
 		ModelAndView modelView=new ModelAndView("admin/admin_create_user");
 		return modelView;
+		}else {
+			return new ModelAndView("redirect:/");
+		}
 	}
 	
 	@RequestMapping(value = {"/adduser"}, method = RequestMethod.GET)

@@ -2,6 +2,8 @@ package com.ktpm.wtg.web.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,25 +21,37 @@ public class AdminRoleController {
 	RoleDao roleDao;
 	
 	@RequestMapping(value = {"/admin_role"}, method = RequestMethod.GET)
-	public ModelAndView AdminRole() {
+	public ModelAndView AdminRole(HttpSession session) {
+		if(session.getAttribute("username") != null) {
 		List<Role> lsRole=roleDao.list();
 		ModelAndView modelView=new ModelAndView("admin/admin_role");
 		modelView.addObject("lsRole", lsRole);
 		return modelView;
+		}else {
+			return new ModelAndView("redirect:/");
+		}
 	}
 	
 	@RequestMapping(value = {"/admin_role_detail"}, method = RequestMethod.GET)
-	public ModelAndView AdminRoleDetail(String id) {
+	public ModelAndView AdminRoleDetail(String id, HttpSession session) {
+		if(session.getAttribute("username") != null) {
 		Role role= roleDao.getById(id);
 		ModelAndView modelView=new ModelAndView("admin/admin_role_detail");
 		modelView.addObject("role", role);
 		return modelView;
+		}else {
+			return new ModelAndView("redirect:/");
+		}
 	}
 	
 	@RequestMapping(value = {"/admin_create_role"}, method = RequestMethod.GET)
-	public ModelAndView AdminRoleCreate() {
+	public ModelAndView AdminRoleCreate(HttpSession session) {
+		if(session.getAttribute("username") != null) {
 		ModelAndView modelView=new ModelAndView("admin/admin_create_role");
 		return modelView;
+		}else {
+			return new ModelAndView("redirect:/");
+		}
 	}
 	
 	@RequestMapping(value = {"/addrole"}, method = RequestMethod.GET)

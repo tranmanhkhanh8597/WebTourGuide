@@ -374,7 +374,7 @@
 												<a class="toolTipster tooltipstered" style="cursor: pointer;" href="javascript: void(0)">${lsTourCustom.limit_person}</a>
 											</p>
 											<p>${lsTourCustom.tour_duration}</p>
-											<a rel="nofollow" target="_blank" class="read-more" href="find_tour_detail">Learn More</a>
+											<a rel="nofollow" target="_blank" class="read-more" href="find_tour_detail?id=${lsTourCustom._id}">Learn More</a>
 										</div>
 									</div>
 								</div>
